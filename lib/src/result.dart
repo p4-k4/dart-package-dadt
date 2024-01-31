@@ -14,6 +14,7 @@ sealed class Result<S, F> {
   factory Result.fromNullable(S? s, F f) => s != null ? Success(s) : Null(f);
 
   /// Considers a succesful [Result] that is null as [Failure].
+  @Deprecated('Revert to try/catch')
   static AsyncResult<S?, F> fromFuture<S, F>({
     required Future<S?> Function() future,
     required F f,
